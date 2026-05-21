@@ -26,7 +26,7 @@ local c = {
     type          = '#c8d8ac', -- pale green off-white: user-defined types
     comment       = '#4a7a52', -- muted green: comments (italic) — readable but secondary
     string        = '#6caa6c', -- muted matrix green: strings
-    operator      = '#7fdb7f', -- bright matrix green: ::, <, >, &&, etc.
+    operator      = '#cccccc', -- foreground colour: ::, <, >, &&, =, !=, etc.
     macro         = '#3dcca0', -- teal-green: macros
     preproc       = '#2f6b3f', -- dim green: #include, #define, #ifdef directives
     error         = '#d97070', -- saturated but not alarm-red
