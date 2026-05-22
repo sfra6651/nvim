@@ -49,6 +49,14 @@ opt.clipboard:append("unnamedplus")
 opt.modifiable = true
 opt.encoding = "UTF-8"
 
+-- Stop auto-inserting the comment leader on a new line below a comment.
+-- Filetype plugins set these per-buffer, so strip them after FileType runs.
+vim.api.nvim_create_autocmd('FileType', {
+  callback = function()
+    vim.opt_local.formatoptions:remove({ 'r', 'o' })
+  end,
+})
+
 -- Unlist terminal buffers so :bnext / :bprev skip them
 vim.api.nvim_create_autocmd('TermOpen', {
   callback = function(args)
