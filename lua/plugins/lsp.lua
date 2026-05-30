@@ -91,6 +91,26 @@ return {
             filetypes = { "c", "cpp", "cuda", "proto" },
         })
 
+        vim.lsp.config("rust_analyzer", {
+            settings = {
+                ["rust-analyzer"] = {
+                    checkOnSave = true,
+                    check = { command = "clippy" },
+                    cargo = { allFeatures = true },
+                },
+            },
+            on_attach = function(client, bufnr)
+                if client.supports_method("textDocument/formatting") then
+                    vim.api.nvim_create_autocmd("BufWritePre", {
+                        buffer = bufnr,
+                        callback = function()
+                            vim.lsp.buf.format({ async = false })
+                        end,
+                    })
+                end
+            end,
+        })
+
         vim.lsp.config("slangd", {})
         vim.lsp.enable("slangd")
 
@@ -116,6 +136,11 @@ return {
 
         -- `:` cmdline setup.
         cmp.setup.cmdline(":", {
+          -- auto-show completions here (overrides the global autocomplete = false)
+          -- so vim commands surface as you type ":".
+          completion = {
+            autocomplete = { require("cmp.types").cmp.TriggerEvent.TextChanged },
+          },
           mapping = cmp.mapping.preset.cmdline(),
           sources = cmp.config.sources({
             { name = "path" },
