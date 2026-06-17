@@ -71,6 +71,8 @@ for _, mode in ipairs({ "n", "i", "v" }) do
   vim.keymap.set(mode, "<ScrollWheelRight>", "<Nop>")
   vim.keymap.set(mode, "<S-ScrollWheelLeft>", "<ScrollWheelLeft>", { remap = false })
   vim.keymap.set(mode, "<S-ScrollWheelRight>", "<ScrollWheelRight>", { remap = false })
+  vim.keymap.set(mode, "<S-ScrollWheelUp>", "<Nop>")
+  vim.keymap.set(mode, "<S-ScrollWheelDown>", "<Nop>")
 end
 
 --LSP
