@@ -124,6 +124,10 @@ return {
             end,
         })
 
+        -- TypeScript / TSX. Default filetypes cover
+        -- typescript, typescriptreact, javascript, javascriptreact.
+        vim.lsp.config("ts_ls", {})
+
         vim.lsp.config("slangd", {})
         vim.lsp.enable("slangd")
 
@@ -135,6 +139,7 @@ return {
                 "zls",
                 "clangd",
                 "taplo",
+                "ts_ls",
             },
         })
 

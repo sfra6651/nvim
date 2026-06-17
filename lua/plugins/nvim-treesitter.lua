@@ -17,7 +17,7 @@ return {
         -- Parsers to keep installed. Installs asynchronously on first run and
         -- updates with `:TSUpdate`. (Replaces the old `ensure_installed`.)
         require("nvim-treesitter").install({
-            "vimdoc", "javascript", "typescript", "c", "lua", "rust",
+            "vimdoc", "javascript", "typescript", "tsx", "c", "lua", "rust",
             "jsdoc", "bash", "go", "toml",
         })
 

@@ -65,6 +65,14 @@ vim.keymap.set("v", ">", "<gv")
 vim.keymap.set("n", "<C-j>", "<C-e>")
 vim.keymap.set("n", "<C-k>", "<C-y>")
 
+-- Disable accidental horizontal scroll; require Shift to scroll horizontally
+for _, mode in ipairs({ "n", "i", "v" }) do
+  vim.keymap.set(mode, "<ScrollWheelLeft>", "<Nop>")
+  vim.keymap.set(mode, "<ScrollWheelRight>", "<Nop>")
+  vim.keymap.set(mode, "<S-ScrollWheelLeft>", "<ScrollWheelLeft>", { remap = false })
+  vim.keymap.set(mode, "<S-ScrollWheelRight>", "<ScrollWheelRight>", { remap = false })
+end
+
 --LSP
 vim.api.nvim_set_keymap('n', '<leader>h', '<cmd>lua vim.lsp.buf.hover()<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', { noremap = true, silent = true })
