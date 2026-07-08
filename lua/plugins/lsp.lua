@@ -131,6 +131,8 @@ return {
         vim.lsp.config("slangd", {})
         vim.lsp.enable("slangd")
 
+        vim.lsp.config("wgsl_analyzer", {})
+
         require("mason-lspconfig").setup({
             ensure_installed = {
                 "lua_ls",
@@ -140,6 +142,7 @@ return {
                 "clangd",
                 "taplo",
                 "ts_ls",
+                "wgsl_analyzer",
             },
         })
 

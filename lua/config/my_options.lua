@@ -1,6 +1,8 @@
 local opt = vim.opt
 
 -- Tab / Indentaions
+-- Disable Rust's built-in ftplugin forcing 4-space indent, so the settings below apply
+vim.g.rust_recommended_style = 0
 opt.tabstop = 2
 opt.shiftwidth = 2
 opt.softtabstop = 2

@@ -18,7 +18,7 @@ return {
         -- updates with `:TSUpdate`. (Replaces the old `ensure_installed`.)
         require("nvim-treesitter").install({
             "vimdoc", "javascript", "typescript", "tsx", "c", "lua", "rust",
-            "jsdoc", "bash", "go", "toml",
+            "jsdoc", "bash", "go", "toml", "wgsl",
         })
 
         -- On `main`, highlighting and indentation are no longer enabled via the
